@@ -14,17 +14,12 @@ jobs:
     - name: Take desktop screenshot
       if: ${{ always() }}
       run: |
-          cd /Users/runner/Library/Developer/Xcode/DerivedData
-          ls -la
-          mkdir /Users/runner/Library/Developer/Xcode/DerivedData/DesktopScreenshot
-          cd DesktopScreenshot
-          screencapture screenshot.jpg
-          echo "Check screenshot folder"
+          screencapture test.jpg
           ls -la
 
     - name: Store build output
       if: ${{ always() }}
       uses: actions/upload-artifact@v2
       with:
-        name: screenshot
-        path: /Users/runner/Library/Developer/Xcode/DerivedData/DesktopScreenshot
+        name: test.jpg
+        path: test.jpg
