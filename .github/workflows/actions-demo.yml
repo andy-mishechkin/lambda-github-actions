@@ -11,7 +11,20 @@ jobs:
         brew install ffmpeg
         ./Recorder
 
-    - uses: actions/upload-artifact@v2
+    - name: Take desktop screenshot
+      if: ${{ always() }}
+      run: |
+          cd /Users/runner/Library/Developer/Xcode/DerivedData
+          ls -la
+          mkdir /Users/runner/Library/Developer/Xcode/DerivedData/DesktopScreenshot
+          cd DesktopScreenshot
+          screencapture screenshot.jpg
+          echo "Check screenshot folder"
+          ls -la
+
+    - name: Store build output
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v2
       with:
-        name: output_video.mov
-        path: testing_out.mov
+        name: screenshot
+        path: /Users/runner/Library/Developer/Xcode/DerivedData/DesktopScreenshot
