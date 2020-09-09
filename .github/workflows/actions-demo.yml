@@ -9,6 +9,7 @@ jobs:
     - name: Run a multi-line script
       run: |
         brew install ffmpeg
+        sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceAccessibility
         ./Recorder
 
     - name: Take desktop screenshot
