@@ -8,7 +8,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
       run: |
+        brew install ffmpeg
         ./Recorder
+
     - uses: actions/upload-artifact@v2
       with:
         name: output_video.mov
