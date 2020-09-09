@@ -3,10 +3,10 @@ on: [push]
 jobs:
   build:
     name: Greeting
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        sudo spctl --master-disable
+        sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "INSERT or REPLACE INTO access VALUES('kTCCServiceAccessibility','tests',1,1,1,NULL,NULL,NULL,'UNUSED',NULL,0,1547635615)"
