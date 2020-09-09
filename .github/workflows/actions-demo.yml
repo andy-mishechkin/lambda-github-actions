@@ -8,8 +8,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
       run: |
-        brew install ffmpeg
-        sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceAccessibility
+        sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceScreenCapture
+        echo hello world
+        sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceScreenCapture
         ./Recorder
 
     - name: Take desktop screenshot
