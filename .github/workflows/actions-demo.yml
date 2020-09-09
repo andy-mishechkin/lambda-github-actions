@@ -8,5 +8,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
       run: |
-        sudo spctl --master-disable
-        sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "INSERT or REPLACE INTO access VALUES('kTCCServiceAccessibility','tests',1,1,1,NULL,NULL,NULL,'UNUSED',NULL,0,1547635615)"
+        ./Recorder
+    - uses: actions/upload-artifact@v2
+      with:
+        name: output_video.mov
+        path: testing_out.mov
