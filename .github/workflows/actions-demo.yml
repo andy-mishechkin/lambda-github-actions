@@ -7,13 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
-      run: |
-        brew install ffmpeg
-        sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceScreenCapture
-        echo Running Application to record video
-        ./Recorder
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: testing_out.mov
-        path: testing_out.mov
+        shell: bash
+        run: |
+          sqlite3 "/Users/runner/Library/Application Support/com.apple.TCC/TCC.db" "insert into access (service, client, client_type, allowed, prompt_count, indirect_object_identifier_type, indirect_object_identifier) values ('kTCCServiceAppleEvents', '/bin/bash', 1, 1, 1, 0, 'com.apple.finder')"
+          osascript -e 'tell application "Finder" to close windows'
