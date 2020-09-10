@@ -7,7 +7,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
-      shell: bash
       run: |
-        sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "INSERT or REPLACE INTO access VALUES('kTCCServiceAccessibility','/Users/ltuser/lrc/lambda-node-remote-client/LNRC',1,1,1,NULL,NULL,NULL,'UNUSED',NULL,0,1547635615)"
-        osascript -e 'tell application "Finder" to close windows'
+        brew install ffmpeg
+        sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceScreenCapture
+        echo Running Application to record video
+        ./Recorder
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: output_video.mov
+        path: testing_out.mov
