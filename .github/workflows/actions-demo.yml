@@ -7,23 +7,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
-      run: |
-        if [ "$RUNNER_OS" == 'macOS' ]; then
-             brew install ffmpeg
-             sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceScreenCapture
-             echo Running Application to record video
-             ./Recorder
-        elif [ "$RUNNER_OS" == 'Windows' ]; then
-             choco install ffmpeg
-             echo Running Application to record video
-             chmod +x Recorder.exe
-             ./Recorder.exe
-        else
-             echo "$RUNNER_OS not supported"
-             exit 1
-        fi
+    - if: matrix.os == 'macos-latest'
+        run: |
+          brew install ffmpeg
+          sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceScreenCapture
+          echo Running Application to record video
+          chmod +x Recorder
+          ./Recorder
 
-
+    - if: matrix.os == 'windows-latest'
+        run: |
+            choco install ffmpeg
+            echo Running Application to record video
+            chmod +x Recorder.exe
+            ./Recorder.exe
 
     - uses: actions/upload-artifact@v2
       with:
