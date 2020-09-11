@@ -3,15 +3,27 @@ on: [push]
 jobs:
   build:
     name: Greeting
-    runs-on: macos-latest
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
       run: |
-        brew install ffmpeg
-        sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceScreenCapture
-        echo Running Application to record video
-        ./Recorder
+        if [ "$RUNNER_OS" == 'macOS' ]; then
+             brew install ffmpeg
+             sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceScreenCapture
+             echo Running Application to record video
+             ./Recorder
+        elif [ "$RUNNER_OS" == 'Windows' ]; then
+             choco install ffmpeg
+             echo Running Application to record video
+             chmod +x Recorder.exe
+             ./Recorder.exe
+        else
+             echo "$RUNNER_OS not supported"
+             exit 1
+        fi
+
+
 
     - uses: actions/upload-artifact@v2
       with:
