@@ -8,19 +8,19 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
     - if: matrix.os == 'macos-latest'
-        run: |
-          brew install ffmpeg
-          sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceScreenCapture
-          echo Running Application to record video
-          chmod +x Recorder
-          ./Recorder
+          run: |
+            brew install ffmpeg
+            sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceScreenCapture
+            echo Running Application to record video
+            chmod +x Recorder
+            ./Recorder
 
     - if: matrix.os == 'windows-latest'
-        run: |
-            choco install ffmpeg
-            echo Running Application to record video
-            chmod +x Recorder.exe
-            ./Recorder.exe
+          run: |
+              choco install ffmpeg
+              echo Running Application to record video
+              chmod +x Recorder.exe
+              ./Recorder.exe
 
     - uses: actions/upload-artifact@v2
       with:
