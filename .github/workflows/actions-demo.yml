@@ -3,12 +3,16 @@ on: [push]
 jobs:
   build:
     name: Greeting
-    runs-on: windows-latest
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
       run: |
-        choco install ffmpeg
+        brew install ffmpeg
+        sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceScreenCapture
         echo Running Application to record video
-        chmod +x Recorder.exe
-        ./Recorder.exe
+        ./Recorder
+    - uses: actions/upload-artifact@v2
+      with:
+        name: output_video.mov
+        path: testing_out.mov
