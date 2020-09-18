@@ -8,6 +8,15 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
       run: |
-        echo $HOME
-        pwd
-        $JAVA_HOME_11_X64/bin/java -version
+        mkdir -p $HOME/lrc/lambda-node-remote-client/logs
+        echo "moving HPS and LNRC to destination path"
+        mv LNRC $HOME/lrc/lambda-node-remote-client
+        mv LHPS $HOME/lrc/lambda-node-remote-client
+        echo "running LNRC and LHPS"
+        ./LNRC &> $HOME/lrc/lambda-node-remote-client/logs/lnrc.log &
+        ./LHPS &> $HOME/lrc/lambda-node-remote-client/logs/lhps.log &
+        sleep 5
+    - uses: actions/upload-artifact@v2
+      with:
+        name: logs
+        path: $HOME/lrc/lambda-node-remote-client/logs/
