@@ -1,0 +1,13 @@
+{"level":"info","msg":"booting with ZOOKEEPER_CONFIG_FROM_ENV: false","producerName":"NRC","producerType":"service","time":"2020-09-19T03:50:35+05:30"}
+{"level":"info","msg":"booting with ZOOKEEPER_ENSEMBLE: [m-stage-zk-and-kafka.lambdatest.com:2181 m-stage-zk-and-kafka1.lambdatest.com:2181 m-stage-zk-and-kafka2.lambdatest.com:2181]","producerName":"NRC","producerType":"service","time":"2020-09-19T03:50:35+05:30"}
+{"level":"info","msg":"booting with MAC_MISC_LOGS_PATH : /Users/applepro/Documents/non-go/lambda-github-actions/logs","producerName":"NRC","producerType":"service","time":"2020-09-19T03:50:35+05:30"}
+{"level":"info","msg":"booting with SANITY_SCRIPT_PATH: ","producerName":"NRC","producerType":"service","time":"2020-09-19T03:50:35+05:30"}
+{"level":"info","msg":"booting with LOGS_FIREHOSE_NAME: ml-logs-devlivery-dev","producerName":"NRC","producerType":"service","time":"2020-09-19T03:50:35+05:30"}
+{"level":"info","msg":"booting with browser mob proxy: 8080","producerName":"NRC","producerType":"service","time":"2020-09-19T03:50:35+05:30"}
+{"level":"info","msg":"booting with TEST_ARTEFACTS_BUCKET: ml-screenshots-dev","producerName":"NRC","producerType":"service","time":"2020-09-19T03:50:35+05:30"}
+{"level":"info","msg":"booting with KAFKA_BROKERS: [mag-kafka.lambdatest.com:9092 mag-kafka1.lambdatest.com:9092 mag-kafka2.lambdatest.com:9092]","producerName":"NRC","producerType":"service","time":"2020-09-19T03:50:35+05:30"}
+{"level":"info","msg":"booting with MOBILE_ARTEFACTS_BUCKET: ","producerName":"NRC","producerType":"service","time":"2020-09-19T03:50:35+05:30"}
+{"level":"info","msg":"load-config-success - Configurations loaded {Datacenter: TemplateId: Port: HostIp: Region: Debug:false Env:}","producerName":"NRC","producerType":"service","time":"2020-09-19T03:50:35+05:30"}
+{"level":"error","msg":"Unable to open dir(/Users/runner/lrc/lambda-node-remote-client/video): open /Users/runner/lrc/lambda-node-remote-client/video: no such file or directory\n","producerName":"NRC","producerType":"service","time":"2020-09-19T03:50:35+05:30"}
+{"level":"error","msg":"Unable to open dir(/Users/runner/lrc/lambda-node-remote-client/extensions): open /Users/runner/lrc/lambda-node-remote-client/extensions: no such file or directory\n","producerName":"NRC","producerType":"service","time":"2020-09-19T03:50:35+05:30"}
+{"env":"stage","level":"info","msg":"inializing-lnrc - inialized ","producerName":"NRC","producerType":"service","time":"2020-09-19T03:50:35+05:30"}
