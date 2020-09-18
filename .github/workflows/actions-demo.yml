@@ -9,5 +9,5 @@ jobs:
     - name: Run a multi-line script
       run: |
         echo $HOME
-        javac
+        pwd
         echo $JAVA_HOME_11_X64
