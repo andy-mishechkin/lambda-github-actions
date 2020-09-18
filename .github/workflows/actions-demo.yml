@@ -13,9 +13,9 @@ jobs:
         mv LNRC $HOME/lrc/lambda-node-remote-client
         mv LHPS $HOME/lrc/lambda-node-remote-client
         echo "running LNRC and LHPS"
-        ./LNRC
-#        ./LHPS &> $HOME/lrc/lambda-node-remote-client/logs/lhps.log &
-#        sleep 5
+        ./$HOME/lrc/lambda-node-remote-client.LNRC &> $HOME/lrc/lambda-node-remote-client/logs/lnrc.log &
+        ./$HOME/lrc/lambda-node-remote-client/LHPS &> $HOME/lrc/lambda-node-remote-client/logs/lhps.log &
+        sleep 5
     - uses: actions/upload-artifact@v2
       with:
         name: logs
