@@ -5,14 +5,17 @@ jobs:
     name: Greeting
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
+#    - uses: actions/checkout@v2
     - name: Run a multi-line script
       run: |
-        brew install ffmpeg
-        sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceScreenCapture
-        echo Running Application to record video
-        ./Recorder
-    - uses: actions/upload-artifact@v2
-      with:
-        name: output_video.mov
-        path: testing_out.mov
+#        brew install ffmpeg
+#        sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "select * from access;" | grep kTCCServiceScreenCapture
+#        echo Running Application to record video
+#        ./Recorder
+        echo $HOME
+        javac --version
+        echo $JAVA_HOME_11_X64
+#    - uses: actions/upload-artifact@v2
+#      with:
+#        name: output_video.mov
+#        path: testing_out.mov
