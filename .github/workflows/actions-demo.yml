@@ -10,4 +10,4 @@ jobs:
       run: |
         echo $HOME
         pwd
-        echo $JAVA_HOME_11_X64
+        $JAVA_HOME_11_X64/bin/java -version
