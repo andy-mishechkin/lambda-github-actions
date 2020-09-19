@@ -1,5 +1,4 @@
-on: [push]
-
+on: [push, workflow_dispatch]
 jobs:
   build:
     name: Greeting
@@ -47,8 +46,11 @@ jobs:
       run: |
         pwd
         python selenium_test.py dev "ANY" "Firefox" "75.0"
+        ls $HOME/lrc/lambda-node-remote-client/logs/
     - uses: actions/upload-artifact@v2
       if : ${{ always() }}
       with:
-        name: lnrc.log
-        path: ~/lrc/lambda-node-remote-client/logs/lnrc.log
+        name: logs
+        path:
+        ~/lrc/lambda-node-remote-client/logs/lnrc.log
+        ~/lrc/lambda-node-remote-client/logs/lnrc.log
