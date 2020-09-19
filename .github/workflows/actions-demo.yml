@@ -20,12 +20,14 @@ jobs:
         mv LNRC $HOME/lrc/lambda-node-remote-client
         mv LHPS $HOME/lrc/lambda-node-remote-client
         mv .env $HOME/lrc/lambda-node-remote-client
+
+        cd $HOME/lrc/lambda-node-remote-client/
+        echo "listing content of path lambda-node-remote-client"
+        ls -a
+
         echo "running LNRC and LHPS"
         chmod +x $HOME/lrc/lambda-node-remote-client/LNRC
         chmod +x $HOME/lrc/lambda-node-remote-client/LHPS
-        cd $HOME/lrc/lambda-node-remote-client/
-        ls -a
-        if [ -f .env ]; then export $(cat .env | sed 's/#.*//g' | xargs); fi
         ./LHPS &> $HOME/lrc/lambda-node-remote-client/logs/lhps.log &
         ./LNRC &> $HOME/lrc/lambda-node-remote-client/logs/lnrc.log &
         sleep 3
