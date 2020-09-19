@@ -51,6 +51,6 @@ jobs:
       if : ${{ always() }}
       with:
         name: logs
-        path:
+        path: |
         ~/lrc/lambda-node-remote-client/logs/lnrc.log
         ~/lrc/lambda-node-remote-client/logs/lnrc.log
