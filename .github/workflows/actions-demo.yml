@@ -12,6 +12,7 @@ jobs:
       run: |
         echo "installing redis and ffmpeg"
         brew install redis
+        brew install ffmpeg
         brew services start redis
         mkdir -p $HOME/lrc/lambda-node-remote-client/logs
         sudo mkdir -p /opt/logs/lhps
