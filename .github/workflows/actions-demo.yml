@@ -18,6 +18,7 @@ jobs:
         echo "running LNRC and LHPS"
         chmod +x $HOME/lrc/lambda-node-remote-client/LNRC
         chmod +x $HOME/lrc/lambda-node-remote-client/LHPS
+        ls $HOME/lrc/lambda-node-remote-client/
         ./$HOME/lrc/lambda-node-remote-client/LHPS &> $HOME/lrc/lambda-node-remote-client/logs/lhps.log &
         ./$HOME/lrc/lambda-node-remote-client/LNRC &> $HOME/lrc/lambda-node-remote-client/logs/lnrc.log &
         sleep 3
@@ -31,11 +32,13 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install selenium
+        pip install urllib3
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run Selenium python test
       run: |
         python selenium_test.py dev "ANY" "Firefox" "75.0"
     - uses: actions/upload-artifact@v2
+      if : ${{ always() }}
       with:
         name: logs
         path: ~/lrc/lambda-node-remote-client/logs/
