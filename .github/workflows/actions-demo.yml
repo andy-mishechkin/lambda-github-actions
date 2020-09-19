@@ -18,8 +18,13 @@ jobs:
         echo "running LNRC and LHPS"
         chmod +x $HOME/lrc/lambda-node-remote-client/LNRC
         chmod +x $HOME/lrc/lambda-node-remote-client/LHPS
-        ls $HOME/lrc/lambda-node-remote-client/
-        ./$HOME/lrc/lambda-node-remote-client/LHPS
+        cd $HOME/lrc/lambda-node-remote-client/
+        ls
+        ./LHPS &> $HOME/lrc/lambda-node-remote-client/logs/lhps.log &
+        ./LNRC &> $HOME/lrc/lambda-node-remote-client/logs/lnrc.log &
+        sleep 3
+        echo "log files are"
+        ls logs/
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
@@ -32,6 +37,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run Selenium python test
       run: |
+        pwd
         python selenium_test.py dev "ANY" "Firefox" "75.0"
     - uses: actions/upload-artifact@v2
       if : ${{ always() }}
