@@ -50,5 +50,5 @@ jobs:
     - uses: actions/upload-artifact@v2
       if : ${{ always() }}
       with:
-        name: logs
-        path: ~/lrc/lambda-node-remote-client/logs/
+        name: lnrc.log
+        path: ~/lrc/lambda-node-remote-client/logs/lnrc.log
