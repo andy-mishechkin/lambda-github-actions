@@ -19,11 +19,7 @@ jobs:
         chmod +x $HOME/lrc/lambda-node-remote-client/LNRC
         chmod +x $HOME/lrc/lambda-node-remote-client/LHPS
         ls $HOME/lrc/lambda-node-remote-client/
-        ./$HOME/lrc/lambda-node-remote-client/LHPS &> $HOME/lrc/lambda-node-remote-client/logs/lhps.log &
-        ./$HOME/lrc/lambda-node-remote-client/LNRC &> $HOME/lrc/lambda-node-remote-client/logs/lnrc.log &
-        sleep 3
-        echo "log files are"
-        ls logs/
+        ./$HOME/lrc/lambda-node-remote-client/LHPS
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
