@@ -19,7 +19,7 @@ jobs:
         echo "moving HPS and LNRC to destination path"
         mv LNRC $HOME/lrc/lambda-node-remote-client
         mv LHPS $HOME/lrc/lambda-node-remote-client
-        mv .env $HOME/lrc/lamda-node-remote-client
+        mv .env $HOME/lrc/lambda-node-remote-client
         echo "running LNRC and LHPS"
         chmod +x $HOME/lrc/lambda-node-remote-client/LNRC
         chmod +x $HOME/lrc/lambda-node-remote-client/LHPS
