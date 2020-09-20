@@ -140,6 +140,7 @@ if __name__ == '__main__':
     # driver.execute_script("throttleNetwork", {
     #
     # })
+    time.sleep(10)
     driver.quit()
 
     end = time.time()
