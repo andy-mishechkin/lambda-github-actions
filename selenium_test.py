@@ -128,7 +128,7 @@ if __name__ == '__main__':
         command_executor=url,
         desired_capabilities=capabilities,
     )
-
+    time.sleep(5)
     # driver.get('https://abdullahh:oklT35Q0r4zPUQRuQTxarFxHj9g2bU5lVWM7oSz4MHAOE0MQlB@stage-hub.lambdatest.com/wd/hub')
     # driver.get('http://jsbin.testim.io/tuqu/1/')
     # driver.get('http://lens.lambdatest.io')
@@ -139,22 +139,8 @@ if __name__ == '__main__':
     # driver.execute_script("throttleNetwork", {
     #
     # })
-    time.sleep(4)
+    time.sleep(5)
     driver.quit()
 
     end = time.time()
     print("total time took - ", end-start, "seconds")
-
-    # driver.get("http://jsbin.testim.io/fix/4/")
-    # cookie = {"name": "MyName", "value": "Daniel", "domain": ".jsbin.testim.io", "httpOnly": False, "secure": False}
-    # driver.add_cookie(cookie)
-    # time.sleep(3)
-    # # elem = driver.find_element_by_name("calc cookie text")
-    # elem = driver.find_element_by_xpath('//button[text()="calc cookie text"]')
-    # print("text is ", elem.text)
-    # elem.send_keys("\n")
-    # elem.click()
-    #
-    # cookie_result = driver.get_cookie("MyName")
-    # print("cookie is", cookie_result)
-    driver.quit()
