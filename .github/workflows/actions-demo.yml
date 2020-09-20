@@ -14,6 +14,7 @@ jobs:
         brew install redis
         brew install ffmpeg
         brew services start redis
+        echo "creating logs directory"
         mkdir -p $HOME/lrc/lambda-node-remote-client/logs
         sudo mkdir -p /opt/logs/lhps
         echo "moving HPS and LNRC to destination path"
