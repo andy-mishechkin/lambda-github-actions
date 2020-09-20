@@ -43,7 +43,7 @@ if __name__ == '__main__':
         fixedIP = None
 
     capabilities = {
-        'build': 'python-pre-run-test-last',
+        'build': 'python-pre-run-test-git',
         'video': True,
         'network': True,
         'console': True,
