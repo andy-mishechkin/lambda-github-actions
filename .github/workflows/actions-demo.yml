@@ -1,7 +1,7 @@
 on: [push, workflow_dispatch]
 jobs:
   build:
-    name: LambdaTest
+    name: Greeting
     runs-on: macos-latest
     strategy:
       matrix:
@@ -12,14 +12,15 @@ jobs:
       run: |
         echo "installing redis and ffmpeg"
         brew install redis
+        brew install ffmpeg
         brew services start redis
         echo "creating logs directory"
-        sudo mkdir -p $HOME/lrc/lambda-node-remote-client/logs
+        mkdir -p $HOME/lrc/lambda-node-remote-client/logs
         sudo mkdir -p /opt/logs/lhps
         echo "moving HPS and LNRC to destination path"
-        sudo mv LNRC $HOME/lrc/lambda-node-remote-client/
-        sudo mv LHPS $HOME/lrc/lambda-node-remote-client/
-        sudo mv .env $HOME/lrc/lambda-node-remote-client/
+        mv LNRC $HOME/lrc/lambda-node-remote-client
+        mv LHPS $HOME/lrc/lambda-node-remote-client
+        mv .env $HOME/lrc/lambda-node-remote-client
 
         cd $HOME/lrc/lambda-node-remote-client/
         echo "listing content of path lambda-node-remote-client"
@@ -28,8 +29,8 @@ jobs:
         echo "running LNRC and LHPS"
         chmod +x $HOME/lrc/lambda-node-remote-client/LNRC
         chmod +x $HOME/lrc/lambda-node-remote-client/LHPS
-        sudo ./LHPS &> $HOME/lrc/lambda-node-remote-client/logs/lhps.log &
-        sudo ./LNRC &> $HOME/lrc/lambda-node-remote-client/logs/lnrc.log &
+        ./LHPS &> $HOME/lrc/lambda-node-remote-client/logs/lhps.log &
+        ./LNRC &> $HOME/lrc/lambda-node-remote-client/logs/lnrc.log &
         sleep 3
         echo "log files are"
         ls logs/
