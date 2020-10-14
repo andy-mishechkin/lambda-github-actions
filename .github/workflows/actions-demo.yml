@@ -12,10 +12,12 @@ jobs:
       run: |
         echo "installing redis and ffmpeg"
         brew install redis
-        brew install ffmpeg
+        curl -s https://s3.amazonaws.com/salt-lnrc-poc/macmini-static-file/ffmpeg -o /usr/local/bin/ffmpeg
+        chmod +x /usr/local/bin/ffmpeg
         brew services start redis
         echo "creating logs directory"
         mkdir -p $HOME/lrc/lambda-node-remote-client/logs
+        mkdir -p /opt/logs/lhps/lhps.log
         sudo mkdir -p /opt/logs/lhps
         echo "moving HPS and LNRC to destination path"
         mv LNRC $HOME/lrc/lambda-node-remote-client
