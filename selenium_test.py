@@ -45,7 +45,7 @@ if __name__ == '__main__':
     capabilities = {
         'build': 'python-pre-run-test-git',
         'video': True,
-        'network': True,
+        'network': False,
         'console': True,
         'visual': True,
         "platform": platform,
@@ -84,7 +84,6 @@ if __name__ == '__main__':
         # "safari.popups": True,
         # "safari.cookies": True
         "ie.compatibility": 11001,
-        "geoLocation": "ES",
     }
 
     if fixedIP:
