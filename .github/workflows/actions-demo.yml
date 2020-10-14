@@ -30,8 +30,8 @@ jobs:
         echo "running LNRC and LHPS"
         chmod +x $HOME/lrc/lambda-node-remote-client/LNRC
         chmod +x $HOME/lrc/lambda-node-remote-client/LHPS
-        ./LHPS &> $HOME/lrc/lambda-node-remote-client/logs/lhps.log &
-        ./LNRC &> $HOME/lrc/lambda-node-remote-client/logs/lnrc.log &
+        sudo ./LHPS &> $HOME/lrc/lambda-node-remote-client/logs/lhps.log &
+        sudo ./LNRC &> $HOME/lrc/lambda-node-remote-client/logs/lnrc.log &
         sleep 3
         echo "log files are"
         ls logs/
