@@ -84,43 +84,11 @@ if __name__ == '__main__':
         # "safari.popups": True,
         # "safari.cookies": True
         "ie.compatibility": 11001,
+        "geoLocation": "ES",
     }
 
     if fixedIP:
         capabilities["fixedIP"] = fixedIP
-
-    desiredCapabilities = {
-        "_isOldEdge": True,
-        "acceptInsecureCerts": True,
-        "acceptSslCerts": True,
-        "browserName": "MicrosoftEdge",
-        "build": "test edge zoom fix final QA",
-        "console": True,
-        "extendedDebuging": True,
-        "handlesAlerts": True,
-        "headless": False,
-        "javascriptEnabled": True,
-        "locationContextEnabled": True,
-        "loggingPrefs": {"browser": "ALL", "driver": "ALL", "server": "ALL"},
-        "name": "edge_html_osx",
-        "nativeEvents": True,
-        "network": True,
-        "platform": "win10",
-        "resolution": "1920x1080",
-        "rotatable": True,
-        "selenium_version": "3.14.0",
-        "testName": "Test edge zoom fix",
-        "unexpectedAlertBehaviour": "accept",
-        "version": "18.0",
-        "video": True,
-        "visual": True,
-        "w3c": True,
-        # "fixedIP": "10.81.103.231",
-        "ignoreZoomSetting": True,
-        "ie.compatibility": 11001
-    }
-
-    local_url = "http://localhost:4449/wd/hub"
 
     start = time.time()
 
@@ -128,14 +96,12 @@ if __name__ == '__main__':
         command_executor=url,
         desired_capabilities=capabilities,
     )
-    time.sleep(5)
     # driver.get('https://abdullahh:oklT35Q0r4zPUQRuQTxarFxHj9g2bU5lVWM7oSz4MHAOE0MQlB@stage-hub.lambdatest.com/wd/hub')
     # driver.get('http://jsbin.testim.io/tuqu/1/')
     # driver.get('http://lens.lambdatest.io')
-    driver.get("https://google.com/")
+    driver.get("https://www,google.com")
+    driver.get("https://www,fast.com")
     #
-    print(driver.session_id)
-    driver.get("https://fast.com")
     # driver.execute_script("throttleNetwork", {
     #
     # })
