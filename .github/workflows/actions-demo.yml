@@ -17,6 +17,7 @@ jobs:
         echo "creating logs directory"
         mkdir -p $HOME/lrc/lambda-node-remote-client/logs
         sudo mkdir -p /opt/logs/lhps
+        sudo touch /opt/log/lhps/lhps.log
         echo "moving HPS and LNRC to destination path"
         mv LNRC $HOME/lrc/lambda-node-remote-client
         mv LHPS $HOME/lrc/lambda-node-remote-client
