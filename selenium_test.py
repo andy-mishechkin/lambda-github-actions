@@ -98,7 +98,7 @@ if __name__ == '__main__':
     # driver.get('https://abdullahh:oklT35Q0r4zPUQRuQTxarFxHj9g2bU5lVWM7oSz4MHAOE0MQlB@stage-hub.lambdatest.com/wd/hub')
     # driver.get('http://jsbin.testim.io/tuqu/1/')
     # driver.get('http://lens.lambdatest.io')
-    driver.get("https://www.google.com")
+    driver.get("https://whatculture.com/wwe")
     driver.get("https://www.fast.com")
     #
     # driver.execute_script("throttleNetwork", {
