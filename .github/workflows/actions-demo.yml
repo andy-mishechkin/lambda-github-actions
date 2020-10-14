@@ -1,7 +1,7 @@
 on: [push, workflow_dispatch]
 jobs:
   build:
-    name: Greeting
+    name: LambdaTest
     runs-on: macos-latest
     strategy:
       matrix:
@@ -19,9 +19,9 @@ jobs:
         sudo mkdir -p $HOME/lrc/lambda-node-remote-client/logs
         sudo mkdir -p /opt/logs/lhps
         echo "moving HPS and LNRC to destination path"
-        mv LNRC $HOME/lrc/lambda-node-remote-client/
-        mv LHPS $HOME/lrc/lambda-node-remote-client/
-        mv .env $HOME/lrc/lambda-node-remote-client/
+        sudo mv LNRC $HOME/lrc/lambda-node-remote-client/
+        sudo mv LHPS $HOME/lrc/lambda-node-remote-client/
+        sudo mv .env $HOME/lrc/lambda-node-remote-client/
 
         cd $HOME/lrc/lambda-node-remote-client/
         echo "listing content of path lambda-node-remote-client"
