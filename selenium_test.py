@@ -45,7 +45,7 @@ if __name__ == '__main__':
     capabilities = {
         'build': 'python-pre-run-test-git',
         'video': True,
-        'network': False,
+        'network': True,
         'console': True,
         'visual': True,
         "platform": platform,
