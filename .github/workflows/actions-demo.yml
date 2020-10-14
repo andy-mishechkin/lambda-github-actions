@@ -28,6 +28,13 @@ jobs:
         echo "listing content of path lambda-node-remote-client"
         ls -a
 
+        echo "installing certificates"
+
+        mkdir -p $HOME/lambda/shared-tools/volume/certs
+        curl -s https://mobile-automation-testing.s3.amazonaws.com/certificates/ios/lambdatest.crt -o $HOME/lambda/shared-tools/volume/certs/lambdatest.crt
+        curl -s https://mobile-automation-testing.s3.amazonaws.com/certificates/ios/lambdatest.key -o $HOME/lambda/shared-tools/volume/certs/lambdatest.key
+        sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain $HOME/lambda/shared-tools/volume/certs/lambdatest.crt
+
         echo "running LNRC and LHPS"
         chmod +x $HOME/lrc/lambda-node-remote-client/LNRC
         chmod +x $HOME/lrc/lambda-node-remote-client/LHPS

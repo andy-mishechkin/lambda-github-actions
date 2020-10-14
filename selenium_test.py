@@ -84,6 +84,7 @@ if __name__ == '__main__':
         # "safari.popups": True,
         # "safari.cookies": True
         "ie.compatibility": 11001,
+        "geoLocation": "JP",
     }
 
     if fixedIP:
