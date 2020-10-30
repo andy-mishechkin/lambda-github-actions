@@ -56,9 +56,9 @@ jobs:
     - name: Run Selenium python test
       run: |
         pwd
-        python selenium_test.py dev "ANY" "Firefox" "78.0"
+        python selenium_test.py dev "macOS Catalina" "Firefox" "78.0"
         ls $HOME/lrc/lambda-node-remote-client/logs/
-        sleep 10
+        sleep 15
     - uses: actions/upload-artifact@v2
       if : ${{ always() }}
       with:
