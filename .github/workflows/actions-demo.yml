@@ -56,7 +56,7 @@ jobs:
     - name: Run Selenium python test
       run: |
         pwd
-        python selenium_test.py dev "macOS Catalina" "Chrome" "78.0"
+        python selenium_test.py dev "macOS Catalina" "Safari" "13.0"
         ls $HOME/lrc/lambda-node-remote-client/logs/
         sleep 15
     - uses: actions/upload-artifact@v2
