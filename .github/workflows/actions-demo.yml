@@ -57,6 +57,8 @@ jobs:
       run: |
         pwd
         python selenium_test.py dev "macOS Catalina" "Chrome" "85.0"
+        chmod +x parallel_test.sh
+        sh parallel_test.sh
         ls $HOME/lrc/lambda-node-remote-client/logs/
         sleep 15
     - uses: actions/upload-artifact@v2
