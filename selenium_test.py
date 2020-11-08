@@ -137,8 +137,11 @@ if __name__ == '__main__':
     # driver.get('http://lens.lambdatest.io')
     # driver.maximize_window()
     driver.get("https://google.com/")
+    time.sleep(2)
     driver.get("https://www.fast.com")
+    time.sleep(2)
     driver.get("https://www.whatculture.com/wwe")
+    time.sleep(2)
     driver.quit()
 
     # driver.get("http://jsbin.testim.io/fix/4/")
