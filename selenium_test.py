@@ -129,18 +129,16 @@ if __name__ == '__main__':
         command_executor=url,
         desired_capabilities=capabilities,
     )
-    time.sleep(5)
+
+    print("setup time - ", time.time()-start, " seconds")
 
     # driver.get('https://abdullahh:oklT35Q0r4zPUQRuQTxarFxHj9g2bU5lVWM7oSz4MHAOE0MQlB@stage-hub.lambdatest.com/wd/hub')
     # driver.get('http://jsbin.testim.io/tuqu/1/')
     # driver.get('http://lens.lambdatest.io')
     # driver.maximize_window()
     driver.get("https://google.com/")
-    time.sleep(2)
     driver.get("https://www.fast.com")
-    time.sleep(5)
     driver.get("https://www.whatculture.com/wwe")
-    time.sleep(5)
     driver.quit()
 
     # driver.get("http://jsbin.testim.io/fix/4/")
