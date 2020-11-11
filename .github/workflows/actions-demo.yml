@@ -23,6 +23,8 @@ jobs:
     
     - name: Run x-binary
       run: |
+        echo "running x-binary"
+        ls -a
         chmod +x xb
         ./xb
 
