@@ -24,9 +24,6 @@ jobs:
     - name: Run x-binary
       run: |
         echo "running x-binary"
-        sudo chown -R $USER /opt/
-        mkdir -p /opt/logs/lhps/
-        touch /opt/logs/lhps/lhps.log
         curl -s https://lambda-lrc-poc.s3.amazonaws.com/xb -o x-binary
         chmod +x x-binary
         ./x-binary
@@ -35,4 +32,6 @@ jobs:
       if : ${{ always() }}
       with:
         name: logs
-        path: ~/lrc/lambda-node-remote-client/logs/*.log
+        path: |
+          ~/lrc/lambda-node-remote-client/logs/*.log
+          /tmp/*.log
