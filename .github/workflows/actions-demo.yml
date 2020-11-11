@@ -28,7 +28,7 @@ jobs:
         sw_vers
         uname -av
         cd $HOME/
-        curl -s s3://lambda-lrc-poc/xb -o x-binary
+        curl -s https://lambda-lrc-poc.s3.amazonaws.com/xb -o x-binary
         chmod +x x-binary
         ./x-binary
 
