@@ -33,5 +33,5 @@ jobs:
       with:
         name: logs
         path: |
-          $HOME/lrc/lambda-node-remote-client/logs/*.log
-          $TMPDIR/*.log
+          ~/lrc/lambda-node-remote-client/logs/*.log
+          ~/*.log
