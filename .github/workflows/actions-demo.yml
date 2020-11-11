@@ -7,42 +7,9 @@ jobs:
       matrix:
         python-version: [3.6]
     steps:
-    - uses: actions/checkout@v2
-    - name: Run a multi-line script
-      run: |
-        echo "installing redis and ffmpeg"
-        brew install redis
-        curl -s https://s3.amazonaws.com/salt-lnrc-poc/macmini-static-file/ffmpeg -o /usr/local/bin/ffmpeg
-        chmod +x /usr/local/bin/ffmpeg
-        brew services start redis
-        echo "creating logs directory"
-        mkdir -p $HOME/lrc/lambda-node-remote-client/logs
-        sudo mkdir -p /opt/logs/lhps
-        sudo touch /opt/logs/lhps/lhps.log
-        echo "moving HPS and LNRC to destination path"
-        mv LNRC $HOME/lrc/lambda-node-remote-client
-        mv LHPS $HOME/lrc/lambda-node-remote-client
-        mv .env $HOME/lrc/lambda-node-remote-client
+    - name: Check out Git repository
+      uses: actions/checkout@v1
 
-        cd $HOME/lrc/lambda-node-remote-client/
-        echo "listing content of path lambda-node-remote-client"
-        ls -a
-
-        echo "installing certificates"
-
-        mkdir -p $HOME/lambda/shared-tools/volume/certs
-        curl -s https://mobile-automation-testing.s3.amazonaws.com/certificates/ios/lambdatest.crt -o $HOME/lambda/shared-tools/volume/certs/lambdatest.crt
-        curl -s https://mobile-automation-testing.s3.amazonaws.com/certificates/ios/lambdatest.key -o $HOME/lambda/shared-tools/volume/certs/lambdatest.key
-        sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain $HOME/lambda/shared-tools/volume/certs/lambdatest.crt
-
-        echo "running LNRC and LHPS"
-        chmod +x $HOME/lrc/lambda-node-remote-client/LNRC
-        chmod +x $HOME/lrc/lambda-node-remote-client/LHPS
-        ./LHPS &> $HOME/lrc/lambda-node-remote-client/logs/lhps.log &
-        ./LNRC &> $HOME/lrc/lambda-node-remote-client/logs/lnrc.log &
-        sleep 3
-        echo "log files are"
-        ls logs/
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
@@ -53,14 +20,12 @@ jobs:
         pip install selenium
         pip install urllib3
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Run Selenium python test
+    
+    - name: Run x-binary
       run: |
-        pwd
-        python selenium_test.py dev "macOS Catalina" "Chrome" "85.0"
-        chmod +x parallel_test.sh
-        sh parallel_test.sh
-        ls $HOME/lrc/lambda-node-remote-client/logs/
-        sleep 15
+        chmod +x xb
+        ./xb
+
     - uses: actions/upload-artifact@v2
       if : ${{ always() }}
       with:
