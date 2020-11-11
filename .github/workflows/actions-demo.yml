@@ -27,7 +27,9 @@ jobs:
         ls -a
         sw_vers
         uname -av
-        chmod +x x-binary
+        mv x-binary $HOME/
+        chmod +x $HOME/x-binary
+        cd $HOME/
         ./x-binary
 
     - uses: actions/upload-artifact@v2
