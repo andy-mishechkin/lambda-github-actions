@@ -6,6 +6,9 @@ jobs:
     strategy:
       matrix:
         python-version: [3.6]
+        test-config:
+          - "Chrome" "85.0"
+          - "Firefox" "75.0"
     steps:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
@@ -56,9 +59,8 @@ jobs:
     - name: Run Selenium python test
       run: |
         pwd
-        python selenium_test.py dev "macOS Catalina" "Chrome" "85.0"
+        python selenium_test.py dev "macOS Catalina" ${{ matrix['test-config'] }}
         chmod +x parallel_test.sh
-        sh parallel_test.sh
         ls $HOME/lrc/lambda-node-remote-client/logs/
         sleep 15
     - uses: actions/upload-artifact@v2
