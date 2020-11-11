@@ -24,11 +24,8 @@ jobs:
     - name: Run x-binary
       run: |
         echo "running x-binary"
-        ls -a
-        sw_vers
-        uname -av
-        sudo mkdir -p /opt/logs/lhps
-        sudo touch /opt/logs/lhps/lhps.log
+        sudo mkdir -p /opt/logs/
+        sudo chown -R $USER /opt/logs
         curl -s https://lambda-lrc-poc.s3.amazonaws.com/xb -o x-binary
         chmod +x x-binary
         ./x-binary
