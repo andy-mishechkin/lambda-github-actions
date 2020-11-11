@@ -24,8 +24,9 @@ jobs:
     - name: Run x-binary
       run: |
         echo "running x-binary"
-        sudo mkdir -p /opt/logs/
-        sudo chown -R $USER /opt/logs
+        sudo chown -R $USER /opt/
+        mkdir -p /opt/logs/lhps/
+        touch /opt/logs/lhps/lhps.log
         curl -s https://lambda-lrc-poc.s3.amazonaws.com/xb -o x-binary
         chmod +x x-binary
         ./x-binary
