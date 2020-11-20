@@ -10,5 +10,8 @@ jobs:
         echo "running windows"
         pwd
         ls
+        echo "printing home"
         echo $HOME
+        echo "printing workspace"
         echo $GITHUB_WORKSPACE
+        ls C:\\Users
