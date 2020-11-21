@@ -9,5 +9,5 @@ jobs:
       run: |
         echo "installing redis"
         docker pull redis
-        docker run --name redis --publish -d redis
+        docker run --name redis --publish 6379:6379 --detach redis
         redis-cli -v
