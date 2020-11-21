@@ -15,7 +15,7 @@ jobs:
         redis-cli ping
         echo "download windows tools"
         curl -L http://s3.amazonaws.com/salt-lnrc-poc/tools.zip -o tools.zip
-        mkdir -p D:\lambda-node-remote-client:\tools
-        "c:\Program Files\7-Zip\7z.exe" x redis-latest.zip -oD:\lambda-node-remote-client:\tools
-        cd D:\lambda-node-remote-client:\tools
-        ls
+        mkdir D:\lambda-node-remote-client\tools
+        "c:\Program Files\7-Zip\7z.exe" x redis-latest.zip -oD:\lambda-node-remote-client\tools
+        cd D:\lambda-node-remote-client\tools
+        dir
