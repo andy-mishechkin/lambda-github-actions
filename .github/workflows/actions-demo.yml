@@ -8,5 +8,6 @@ jobs:
     - name: Run a multi-line script
       run: |
         echo "installing redis"
-        docker run --name redis --publish 6379:6379 --detach redis
+        docker pull redis
+        docker run --name redis --publish -d redis
         redis-cli -v
