@@ -9,7 +9,7 @@ jobs:
       shell: cmd
       run: |
         curl -L https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip -o redis-latest.zip
-        Expand-Archive -Path redis-latest.zip
+        jar xf redis-latest.zip
         cd redis-latest
         redis-server.exe redis.windows.conf
         redis-cli -v
