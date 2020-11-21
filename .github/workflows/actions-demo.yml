@@ -6,6 +6,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
+      shell: bash
       run: |
         wget https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip
         unzip redis-latest.zip
