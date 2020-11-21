@@ -9,7 +9,7 @@ jobs:
       shell: powershell
       run: |
         wget https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip
-        Expand-Archive -Path redis-latest.zip -DestionationPath C:\\redis
-        cd C:\\redis
+        Expand-Archive -Path redis-latest.zip
+        cd redis-latest
         redis-server.exe redis.windows.conf
         redis-cli -v
