@@ -45,7 +45,7 @@ if __name__ == '__main__':
     capabilities = {
         'build': 'python-pre-run-test-last',
         'video': True,
-        'network': True,
+        'network': False,
         'console': True,
         'visual': True,
         "platform": platform,
