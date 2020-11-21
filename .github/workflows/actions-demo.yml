@@ -8,7 +8,8 @@ jobs:
     - name: Run a multi-line script
       run: |
         curl -L https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip -o redis-latest.zip
-        Expand-Archive -Path redis-latest.zip
+        pwd
+        ls
         cd redis-latest
         pwd
         redis-server.exe redis.windows.conf
