@@ -10,5 +10,5 @@ jobs:
         redis-version: '6.x'
     - name: Run a multi-line script
       run: |
-        echo "installing redis"
+        docker-compose up
         redis-cli -v

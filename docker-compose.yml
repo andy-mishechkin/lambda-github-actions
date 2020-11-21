@@ -1,0 +1,16 @@
+version: "2.1"
+
+networks:
+  ? e2e
+
+services:
+
+  rejson:
+    image: redislabs/rejson:latest
+    container_name: redis-rejson
+    ports:
+      - 6379:6379
+    volumes:
+      - /dev/shm:/dev/shm
+    networks:
+      - e2e
