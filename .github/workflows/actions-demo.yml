@@ -8,9 +8,5 @@ jobs:
     - name: Run a multi-line script
       shell: bash
       run: |
-        curl https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip
-        ls
-        Expand-Archive -Path redis-latest.zip
-        cd redis-latest
-        redis-server.exe redis.windows.conf
+        choco install redis
         redis-cli -v
