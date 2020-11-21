@@ -8,7 +8,9 @@ jobs:
     - name: Run a multi-line script
       shell: powershell
       run: |
-        wget https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip
+        pwd
+        wget https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip -OutFile .
+        ls
         Expand-Archive -Path redis-latest.zip
         cd redis-latest
         redis-server.exe redis.windows.conf
