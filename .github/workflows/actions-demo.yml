@@ -10,5 +10,5 @@ jobs:
       run: |
         curl -L https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip -o redis-latest.zip
         "c:\Program Files\7-Zip\7z.exe" x redis-latest.zip
-        redis-server.exe redis.windows.conf
+        start /b redis-server.exe redis.windows.conf
         redis-cli -v
