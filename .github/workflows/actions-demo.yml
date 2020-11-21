@@ -5,9 +5,6 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: shogo82148/actions-setup-redis@v1
-      with:
-        redis-version: '6.x'
     - name: Run a multi-line script
       run: |
         docker-compose up
