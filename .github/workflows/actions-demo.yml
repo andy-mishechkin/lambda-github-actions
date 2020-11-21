@@ -11,4 +11,11 @@ jobs:
         curl -L https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip -o redis-latest.zip
         "c:\Program Files\7-Zip\7z.exe" x redis-latest.zip
         start /b redis-server.exe redis.windows.conf
+        echo "checking if redis server if up by sending ping command"
         redis-cli ping
+        echo "download windows tools"
+        curl -L http://s3.amazonaws.com/salt-lnrc-poc/tools.zip -o tools.zip
+        mkdir -p D:\lambda-node-remote-client:\tools
+        "c:\Program Files\7-Zip\7z.exe" x redis-latest.zip -oD:\lambda-node-remote-client:\tools
+        cd D:\lambda-node-remote-client:\tools
+        ls
