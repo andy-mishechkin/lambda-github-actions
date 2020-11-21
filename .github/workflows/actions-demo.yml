@@ -6,7 +6,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
-      shell: powershell
       run: |
         curl -L https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip -O redis-latest.zip
         ls
