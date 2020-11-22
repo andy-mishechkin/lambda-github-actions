@@ -2,7 +2,7 @@ on: [push, workflow_dispatch]
 jobs:
   build:
     name: Greeting
-    runs-on: windows-latest
+    runs-on: windows-2016
     steps:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
@@ -28,7 +28,7 @@ jobs:
         C:
         mkdir logs
         type NUL > logs\lhps.log
-        LHPS.exe > C:\lambda-node-remote-client\logs\lhps.log
+        START /B LHPS.exe > C:\lambda-node-remote-client\logs\lhps.log
     - name: Install dependencies
       run: |
           python -m pip install --upgrade pip
