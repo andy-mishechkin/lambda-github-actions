@@ -37,7 +37,7 @@ jobs:
           echo "checking port usage of 4449"
           netstat -aon
           tasklist
-          curl localhost:4449/health
+          curl localhost:8765/health
     - name: Run Selenium python test
       run: |
         echo "running python test"
