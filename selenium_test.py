@@ -122,7 +122,7 @@ if __name__ == '__main__':
     }
 
     local_url = "http://localhost:4449/wd/hub"
-
+    time.sleep(5)
     start = time.time()
 
     driver = webdriver.Remote(

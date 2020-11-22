@@ -34,7 +34,6 @@ jobs:
           pip install urllib3
     - name: Run Selenium python test
       run: |
-        timeout 4
         echo "running python test"
         python selenium_test.py dev "windows 10" "Firefox" "75.0"
         sleep 15
