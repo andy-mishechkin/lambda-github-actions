@@ -12,6 +12,7 @@ jobs:
         mkdir logs
         type NUL > logs\lhps.log
         START /B LHPS.exe > logs\lhps.log
+        tasklist
     - name: Install dependencies
       run: |
           curl localhost:8090/hello
