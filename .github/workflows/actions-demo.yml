@@ -16,20 +16,20 @@ jobs:
         redis-cli ping
         echo "download windows tools"
         curl -L http://s3.amazonaws.com/salt-lnrc-poc/tools.zip -o tools.zip
-        mkdir D:\lambda-node-remote-client\tools
+        mkdir C:\lambda-node-remote-client\tools
         echo "unziping window tools"
-        "c:\Program Files\7-Zip\7z.exe" x tools.zip -oD:\lambda-node-remote-client\tools
+        "c:\Program Files\7-Zip\7z.exe" x tools.zip -oC:\lambda-node-remote-client\tools
         echo "moving binaries and env to D driver"
-        move LHPS.exe D:\lambda-node-remote-client
-        move LNRC.exe D:\lambda-node-remote-client
-        move .env D:\lambda-node-remote-client
+        move LHPS.exe C:\lambda-node-remote-client
+        move LNRC.exe C:\lambda-node-remote-client
+        move .env C:\lambda-node-remote-client
         echo "starting LHPS and LNRC"
-        cd D:\lambda-node-remote-client
+        cd C:\lambda-node-remote-client
         mkdir logs
         type NUL > logs\lhps.log
-        START /B LHPS.exe > D:\lambda-node-remote-client\logs\lhps.log
+        START /B LHPS.exe > C:\lambda-node-remote-client\logs\lhps.log
         START /B LNRC.exe
-        dir D:\lambda-node-remote-client\logs
+        dir C:\lambda-node-remote-client\logs
     - name: Install dependencies
       run: |
           python -m pip install --upgrade pip
@@ -48,4 +48,4 @@ jobs:
       if: ${{ always() }}
       with:
         name: logs
-        path: D:\lambda-node-remote-client\logs\*.log
+        path: C:\lambda-node-remote-client\logs\*.log
