@@ -17,7 +17,7 @@ jobs:
         curl -L http://127.0.0.1:8090/hello
     - name: Install dependencies
       run: |
-          curl -L http://127.0.0.1:8090/hello
+          curl http://localhost:8090/hello
     - uses: actions/upload-artifact@v2
       if: ${{ always() }}
       with:
