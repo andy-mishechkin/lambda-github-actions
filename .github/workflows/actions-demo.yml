@@ -11,7 +11,7 @@ jobs:
         netsh advfirewall set allprofiles state off
         mkdir logs
         type NUL > logs\lhps.log
-        START /B LHPS.exe > logs\lhps.log
+        START /B web.exe > logs\lhps.log
         netstat -aon
         tasklist
     - name: Install dependencies
