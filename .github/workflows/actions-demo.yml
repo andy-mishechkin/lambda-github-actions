@@ -16,7 +16,7 @@ jobs:
         tasklist
     - name: Install dependencies
       run: |
-          curl localhost:8090/hello
+          curl http://localhost:8090/hello
     - uses: actions/upload-artifact@v2
       if: ${{ always() }}
       with:
