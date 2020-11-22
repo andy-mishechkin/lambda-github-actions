@@ -35,7 +35,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install selenium
           pip install urllib3
-         curl localhost:4449/health
+          curl localhost:4449/health
     - name: Run Selenium python test
       run: |
         echo "running python test"
