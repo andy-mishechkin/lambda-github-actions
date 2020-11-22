@@ -36,7 +36,7 @@ jobs:
           pip install selenium
           pip install urllib3
           echo "checking port usage of 4449"
-          netstat -aon | find "4449"
+          netstat -aon
           curl localhost:4449/health
     - name: Run Selenium python test
       run: |
