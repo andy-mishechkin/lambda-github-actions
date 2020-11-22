@@ -23,6 +23,7 @@ jobs:
         move LHPS.exe D:\lambda-node-remote-client
         move LNRC.exe D:\lambda-node-remote-client
         echo "starting LHPS and LNRC"
+        cd D:\lambda-node-remote-client
         START /B LHPS.exe
         START /B LNRC.exe
     - name: Install dependencies
