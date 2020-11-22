@@ -8,43 +8,14 @@ jobs:
     - name: Run a multi-line script
       shell: cmd
       run: |
-        echo "downloading redis"
-        curl -L https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip -o redis-latest.zip
-        "c:\Program Files\7-Zip\7z.exe" x redis-latest.zip
-        start /b redis-server.exe redis.windows.conf
-        echo "checking if redis server if up by sending ping command"
-        redis-cli ping
-        echo "download windows tools"
-        curl -L http://s3.amazonaws.com/salt-lnrc-poc/tools.zip -o tools.zip
-        mkdir C:\lambda-node-remote-client\tools
-        echo "unziping window tools"
-        "c:\Program Files\7-Zip\7z.exe" x tools.zip -oC:\lambda-node-remote-client\tools
-        echo "moving binaries and env to D driver"
-        move LHPS.exe C:\lambda-node-remote-client
-        move LNRC.exe C:\lambda-node-remote-client
-        move .env C:\lambda-node-remote-client
-        echo "starting LHPS and LNRC"
-        cd C:\lambda-node-remote-client
-        C:
         mkdir logs
         type NUL > logs\lhps.log
-        START /B LHPS.exe > C:\lambda-node-remote-client\logs\lhps.log
+        START /B LHPS.exe > logs\lhps.log
     - name: Install dependencies
       run: |
-          python -m pip install --upgrade pip
-          pip install selenium
-          pip install urllib3
-          echo "checking port usage of 4449"
-          netstat -aon
-          tasklist
-          curl localhost:4449/hello
-    - name: Run Selenium python test
-      run: |
-        echo "running python test"
-        python selenium_test.py dev "windows 10" "Firefox" "75.0"
-        sleep 15
+          curl localhost:8090/hello
     - uses: actions/upload-artifact@v2
       if: ${{ always() }}
       with:
         name: logs
-        path: C:\lambda-node-remote-client\logs\*.log
+        path: logs\*.log
