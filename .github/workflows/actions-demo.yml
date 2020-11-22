@@ -28,9 +28,7 @@ jobs:
         C:
         mkdir logs
         type NUL > logs\lhps.log
-        START /B LHPS.exe > C:\lambda-node-remote-client\logs\lhps.log
-        START /B LNRC.exe
-        dir C:\lambda-node-remote-client\logs
+        LHPS.exe > C:\lambda-node-remote-client\logs\lhps.log
     - name: Install dependencies
       run: |
           python -m pip install --upgrade pip
