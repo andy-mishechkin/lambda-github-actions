@@ -38,3 +38,8 @@ jobs:
         echo "running python test"
         python selenium_test.py dev "windows 10" "Firefox" "75.0"
         sleep 15
+    - uses: actions/upload-artifact@v2
+      if: ${{ always() }}
+      with:
+        name: logs
+        path: D:\lambda-node-remote-client\logs\*.log
