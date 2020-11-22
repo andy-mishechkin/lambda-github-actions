@@ -25,7 +25,7 @@ jobs:
         move .env D:\lambda-node-remote-client
         echo "starting LHPS and LNRC"
         cd D:\lambda-node-remote-client
-        START /B LHPS.exe
+        START /B LHPS.exe > D:\lambda-node-remote-client\logs\lhps.log
         START /B LNRC.exe
     - name: Install dependencies
       run: |
