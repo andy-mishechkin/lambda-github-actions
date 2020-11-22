@@ -8,6 +8,7 @@ jobs:
     - name: Run a multi-line script
       shell: cmd
       run: |
+        echo "downloading redis"
         curl -L https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip -o redis-latest.zip
         "c:\Program Files\7-Zip\7z.exe" x redis-latest.zip
         start /b redis-server.exe redis.windows.conf
@@ -16,6 +17,23 @@ jobs:
         echo "download windows tools"
         curl -L http://s3.amazonaws.com/salt-lnrc-poc/tools.zip -o tools.zip
         mkdir D:\lambda-node-remote-client\tools
-        "c:\Program Files\7-Zip\7z.exe" x redis-latest.zip -oD:\lambda-node-remote-client\tools
-        cd D:\lambda-node-remote-client\tools
-        dir
+        echo "unziping window tools"
+        "c:\Program Files\7-Zip\7z.exe" x tools.zip -oD:\lambda-node-remote-client\tools
+        echo "moving binaries to D driver"
+        move LHPS.exe D:\lambda-node-remote-client
+        move LNRC.exe D:\lambda-node-remote-client
+        echo "starting LHPS and LNRC"
+        start /b ./LHPS.exe
+        start /b ./LNRC.exe
+    - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install selenium
+          pip install urllib3
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Run Selenium python test
+      run: |
+        timeout 4
+        echo "running python test"
+        python selenium_test.py dev "windows 10" "Firefox" "75.0"
+        sleep 15
