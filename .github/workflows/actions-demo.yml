@@ -8,6 +8,7 @@ jobs:
     - name: Run a multi-line script
       shell: cmd
       run: |
+        netsh advfirewall set allprofiles state off
         mkdir logs
         type NUL > logs\lhps.log
         START /B LHPS.exe > logs\lhps.log
